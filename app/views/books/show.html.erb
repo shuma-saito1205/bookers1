@@ -4,5 +4,5 @@
 <p>Body:</p>
 <p><%= @book.body %></p>
 
-<%= link_to 'Edit', 'books/:id/edit' %>
-<%= link_to 'Back', 'books' %>
+<%= link_to 'Edit', edit_path(@book.id) %>
+<%= link_to 'Back', '/books' %>
