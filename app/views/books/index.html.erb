@@ -1,21 +1,30 @@
 <h1>Books</h1>
   <table>
-      <tr>
-        <th>Title</th>
-        <th>Body</th>
-      </tr>
-  <% @books.each do |book| %>
     <tr>
+      <th>Title</th>
+      <th>Body</th>
+    </tr>
+    <% @books.each do |book| %>
+      <tr>
         <td><span><%= book.title %></span></td>
         <td><span><%= book.body %></span></td>
         <%= link_to 'Show', book_path(book.id) %>
         <%= link_to 'Edit', edit_path(book.id) %>
         <%= link_to 'Destroy',destroy_path(book.id),method: :delete, "data-confirm" => "Are you sure?" %>
-    </tr>
-  <% end %>
-</table>
+      </tr>
+    <% end %>
+  </table>
   
   <h2>New book</h2>
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %>"errors prohibited this book from being saved:"
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
  <%= form_with model: @book do |f| %>
   <h4>Title</h4>
   <%= f.text_field :title %>
