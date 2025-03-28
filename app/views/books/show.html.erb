@@ -1,6 +1,15 @@
-<p>Title:</P> <p><%= @book.title %></p>
-
-<p>Body:</p> <p><%= @book.body %></p>
+<table>
+  <tbody>
+    <tr>
+      <td>Title:</td>
+      <td><%= @book.title %></td>
+    </tr>
+    <tr>
+      <td>Body:</td>
+      <td><%= @book.body %></td>
+    </tr>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_path(@book.id) %>
 |
